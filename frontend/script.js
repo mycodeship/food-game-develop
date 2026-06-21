@@ -5,7 +5,7 @@
 // 例: "https://gohan-game-backend.onrender.com"
 // ローカルでテストする場合は "http://127.0.0.1:8000" のままで構いません。
 
-const API_URL = "https://your-backend.onrender.com";
+const API_URL = "https://food-game-develop.onrender.com";
 
 // -----------------
 // キャラクターデータ
