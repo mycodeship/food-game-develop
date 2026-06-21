@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ごはんゲーム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- ========== 共通背景 ========== -->
+<div class="game-bg" aria-hidden="true">
+    <span class="food-float" style="--x:10%;--d:0s;--s:1.2">🍙</span>
+    <span class="food-float" style="--x:25%;--d:1.2s;--s:0.9">🍱</span>
+    <span class="food-float" style="--x:45%;--d:0.5s;--s:1.4">🍜</span>
+    <span class="food-float" style="--x:65%;--d:1.8s;--s:1.0">🍣</span>
+    <span class="food-float" style="--x:80%;--d:0.3s;--s:1.1">🎂</span>
+    <span class="food-float" style="--x:90%;--d:2.1s;--s:0.85">🍰</span>
+    <span class="food-float" style="--x:5%;--d:1.5s;--s:0.95">🍩</span>
+</div>
+
+<!-- ========== スタート画面 ========== -->
+<div id="start-screen" class="screen-wrapper">
+
+    <div class="game-card">
+
+        <div class="card-title-wrap">
+            <div class="card-subtitle">おなかぺこぺこ</div>
+            <h1 class="card-title">ご飯を<br>あげよう！</h1>
+            <div class="card-deco">🍚✨🍚</div>
+        </div>
+
+        <!-- プレビュー -->
+        <div class="char-area" id="start-char-preview">
+            <img src="pink.jpg" class="char-img" id="start-char-img" alt="キャラクター">
+            <div class="speech-bubble" id="start-char-speech">
+                お腹すいた…<br>何か食べたいな…
+            </div>
+        </div>
+
+        <!-- キャラクター選択 -->
+        <div class="char-select-label">キャラクターを選ぼう</div>
+        <div class="char-select-row" id="char-select-row">
+
+            <button class="char-option selected" data-index="0"
+                    onclick="selectChar(0)">
+                <img src="pink.jpg" class="char-option-img">
+                <span class="char-option-name">ハナ</span>
+            </button>
+
+            <button class="char-option" data-index="1"
+                    onclick="selectChar(1)">
+                <img src="blue.jpg" class="char-option-img">
+                <span class="char-option-name">ユキ</span>
+            </button>
+
+            <button class="char-option" data-index="2"
+                    onclick="selectChar(2)">
+                <img src="red.jpg" class="char-option-img">
+                <span class="char-option-name">アカリ</span>
+            </button>
+
+        </div>
+
+        <button class="game-btn" onclick="startGame()">
+            ▶ はじめる
+        </button>
+
+        <div class="card-hint">※ 毒キノコには気をつけて…</div>
+
+    </div>
+
+</div>
+
+<!-- ========== ゲーム画面 ========== -->
+<div id="game-screen" class="screen-wrapper hidden">
+
+    <div class="game-card game-card--play">
+
+        <!-- ヘッダー -->
+        <div class="play-header">
+            <span class="play-title">ご飯をあげよう！</span>
+            <button class="reset-btn" onclick="resetGame()">↩ リセット</button>
+        </div>
+
+        <!-- キャラクター + 吹き出し -->
+        <div class="char-area">
+            <img src="girl.png" class="char-img" id="character" alt="キャラクター">
+            <div class="speech-bubble" id="speech">お腹すいた…</div>
+        </div>
+
+        <!-- ステータスバー -->
+        <div id="status"></div>
+
+        <!-- 仕切り -->
+        <div class="section-label">🍽 何を食べる？</div>
+
+        <!-- 選択肢 -->
+        <div id="choices"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
